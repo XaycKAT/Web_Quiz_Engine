@@ -1,4 +1,4 @@
-POST http://localhost:8889/api/quizzes/1/solve?answer=2
+POST http://localhost:8889/api/quizzes/0/solve?answer=2
 Content-type: application/json
 Cache-Control: no-cache
 

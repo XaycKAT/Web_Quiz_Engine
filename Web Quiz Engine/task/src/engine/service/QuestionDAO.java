@@ -1,14 +1,18 @@
-package engine.component;
+package engine.service;
 
-import engine.interfaces.Dao;
-import org.springframework.stereotype.Component;
+import engine.component.Answer;
+import engine.component.Question;
+import engine.interfaces.DAO;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Component
-public class QuestionDao implements Dao<Question> {
+@Service
+public class QuestionDAO implements DAO<Question, Answer> {
 
     private final List<Question> questions = new ArrayList<>();
 
@@ -23,7 +27,7 @@ public class QuestionDao implements Dao<Question> {
     }
 
     @Override
-    public void save(Question question) {
+    public void add(Question question) {
         question.setId(questions.size() + 1);
         questions.add(question);
     }
