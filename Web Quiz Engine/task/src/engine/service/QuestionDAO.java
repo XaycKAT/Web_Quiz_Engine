@@ -1,18 +1,16 @@
 package engine.service;
 
-import engine.component.Answer;
+import engine.component.Response;
 import engine.component.Question;
 import engine.interfaces.DAO;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class QuestionDAO implements DAO<Question, Answer> {
+public class QuestionDAO implements DAO<Question, Response> {
 
     private final List<Question> questions = new ArrayList<>();
 

@@ -6,7 +6,7 @@ Cache-Control: no-cache
   "title": "The Java Logo 3",
   "text": "What is depicted on the Java logo?",
   "options": ["Robot","Tea leaf","Cup of coffee","Bug"],
-  "answer": 2
+  "answer": [0,2]
 }
 
 

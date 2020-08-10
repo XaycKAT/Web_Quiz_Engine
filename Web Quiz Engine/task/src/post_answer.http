@@ -1,6 +1,10 @@
-POST http://localhost:8889/api/quizzes/0/solve?answer=2
+POST http://localhost:8889/api/quizzes/1/solve
 Content-type: application/json
 Cache-Control: no-cache
+
+{
+  "answer": [0,2]
+}
 
 
 

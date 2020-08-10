@@ -1,6 +1,7 @@
 package engine.controller;
 
 import engine.component.Answer;
+import engine.component.Response;
 import engine.component.Question;
 import engine.service.QuestionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api/quizzes")
@@ -24,15 +25,15 @@ public class QuizController {
     }
 
     @PostMapping
-    public Question addQuestion(@RequestBody Question question) {
+    public Question addQuestion(@Valid  @RequestBody Question question) {
         questionDao.add(question);
         return question;
     }
 
     @PostMapping(path = "/{id}/solve")
-    public Answer solveQuiz(@PathVariable int id, @RequestParam("answer") int answer) {
-        return getQuestion(id).getAnswer().equals(answer) ? Answer.getSuccessFeedback() :
-                Answer.getFailedFeedback();
+    public Response solveQuiz(@PathVariable int id, @RequestBody Answer answer) {
+        return getQuestion(id).getAnswer().equals(answer.getAnswer()) ? Response.getSuccessFeedback() :
+                Response.getFailedFeedback();
     }
 
     @GetMapping(path = "/{id}")
