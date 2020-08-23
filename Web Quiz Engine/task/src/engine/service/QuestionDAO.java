@@ -1,7 +1,7 @@
 package engine.service;
 
 import engine.component.Response;
-import engine.component.Question;
+import engine.model.Question;
 import engine.interfaces.DAO;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Deprecated
 public class QuestionDAO implements DAO<Question, Response> {
 
     private final List<Question> questions = new ArrayList<>();
@@ -26,7 +26,7 @@ public class QuestionDAO implements DAO<Question, Response> {
 
     @Override
     public void add(Question question) {
-        question.setId(questions.size() + 1);
+        question.setId(questions.size() + 1L);
         questions.add(question);
     }
 
